@@ -10,9 +10,9 @@
 6) Mostrar resultado no terminal.
 
 # Ajuda:
-1) Instalar a última versão LTS do Node js. (Oque é uma versão LTS? Long Term Suport, mas não importa o nome basta entrar no site e baixar).
-2) Instalar a última versão do Visual Studio Code.
-3) Clonar o repositorio na sua maquina local.
-4) Criar uma nova branch com o seu nome. Ex: "Gabriel Zacarias"; "Ketily Ricci".
-5) Criar um projeto novo com nome "Atividade 1" utilizando Typescript e Node js.
-6) Subir o projeto "Atividade 1" para o Github atráves de commits.
+1) Instalar a última versão LTS do Node js. --> https://nodejs.org/en/.
+2) Instalar a última versão do Visual Studio Code. --> https://code.visualstudio.com/
+3) Clonar o repositorio na sua maquina local. --> https://www.google.com/search?q=como+clonar+um+repositorio+git&oq=como+clonar+um+reposi&aqs=chrome.0.0i512j69i57j0i512l4.4136j0j7&sourceid=chrome&ie=UTF-8
+4) Criar uma nova branch com o seu nome. Ex: "Gabriel Ricci"; "Ketily Zacarias". --> *Se basear no exemplo acima...*
+5) Criar um projeto novo com nome "Atividade 1" utilizando Typescript e Node js. --> *Se basear no exemplo acima...*
+6) Subir o projeto "Atividade 1" para o Github atráves de commits. --> *Se basear no exemplo acima...*
