@@ -1,0 +1,23 @@
+{
+  "name": "atividade-1",
+  "version": "1.0.0",
+  "description": "* Implementar um código que receba n números e multiplique entre eles, depois receba mais 1 número e divida o resultado anterior.\r * *Necessário a implementação de tratamento em caso de inputs inválidos.*",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Victorllmenezes/Atividade-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Victorllmenezes/Atividade-1/issues"
+  },
+  "homepage": "https://github.com/Victorllmenezes/Atividade-1#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
