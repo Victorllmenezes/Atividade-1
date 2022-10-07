@@ -1,23 +1,60 @@
 const prompt = require("readline-sync");
 
-let quantidadeDeNumeros: number = prompt.question(
-  "Digite a quantidade de numeros que deseja inserir: "
-);
-
-let Numero = 1;
+let numero: any;
+let listaDeNumeros: any = [];
 let resultadoDaMultiplicação = 1;
-let sequenciaDeNumeros = [];
+let numeroDivisor;
+let resultadoFinal;
+let adicionarNumero: any;
+let escolhaDoUsuario: any = true;
 
-for (let contador = 0; contador < quantidadeDeNumeros; contador++) {
-  Numero = prompt.question("Digite um numero: ");
-  sequenciaDeNumeros.push(Numero);
-  resultadoDaMultiplicação = resultadoDaMultiplicação * Numero;
+function validador(index: any) {
+  listaDeNumeros.push(numero);
+  index = isNaN(index);
+  if (index == false) {
+  } else {
+    switch (numero) {
+      case "e":
+        listaDeNumeros.pop();
+        break;
+
+      default:
+        console.log("Nao eh um numero!!");
+        listaDeNumeros.pop();
+        break;
+    }
+  }
 }
 
-console.log(sequenciaDeNumeros);
+//Receber input de n números no terminal.
 
-let numeroDivisor = prompt.question("Digite um numero divisor: ");
+while (escolhaDoUsuario == true) {
+  numero = prompt.question("Digite um numero ou (e) para sair: ");
+  validador(numero);
+  if (numero == "e" || numero == "E") {
+    escolhaDoUsuario = false;
+  } else {
+  }
+}
 
-resultadoDaMultiplicação = resultadoDaMultiplicação / numeroDivisor;
+//Multiplicar todos os números.
+for (let index = 0; index < listaDeNumeros.length; index++) {
+  resultadoDaMultiplicação = resultadoDaMultiplicação * listaDeNumeros[index];
+}
 
-console.log(resultadoDaMultiplicação);
+//Mostrar números no terminal.
+console.log(listaDeNumeros);
+
+//Receber input de 1 numero no terminal.
+do {
+  numeroDivisor = prompt.question("Digite um numero divisor: ");
+  if (numeroDivisor == 0) {
+    console.log("Impossivel dividir por 0");
+  } else {
+    //Dividir o resultado anterior pelo número inserido.
+    resultadoFinal = resultadoDaMultiplicação / numeroDivisor;
+  }
+} while (numeroDivisor == 0);
+
+//Mostrar resultado no terminal.
+console.log(resultadoFinal);
