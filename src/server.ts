@@ -58,3 +58,24 @@ do {
 
 //Mostrar resultado no terminal.
 console.log(resultadoFinal);
+
+// Receber input de n números no terminal.
+//Loop com uma saida
+//Perguntar numero
+//Validar o numero
+//Armazenar o numero
+//Fim do loop
+
+// Multiplicar todos os números.
+//Percorrer a lista multiplicando valores
+
+// Mostrar números no terminal.
+
+// Receber input de 1 numero no terminal.
+//Perguntar numero
+//Validar o numero
+//Armazenar o numero
+
+// Dividir o resultado anterior pelo número inserido.
+
+// Mostrar resultado no terminal.
