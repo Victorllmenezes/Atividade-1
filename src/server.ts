@@ -1,60 +1,32 @@
+import { isNumber } from "util";
+
 const prompt = require("readline-sync");
 
-let numero: any;
-let listaDeNumeros: any = [];
-let resultadoDaMultiplicação = 1;
-let numeroDivisor;
-let resultadoFinal;
-let adicionarNumero: any;
-let escolhaDoUsuario: any = true;
+function ValidarResposta(resposta: string): boolean {
+  if (resposta) {
+    console.log(isNumber(resposta));
 
-function validador(index: any) {
-  listaDeNumeros.push(numero);
-  index = isNaN(index);
-  if (index == false) {
+    return false;
   } else {
-    switch (numero) {
-      case "e":
-        listaDeNumeros.pop();
-        break;
-
-      default:
-        console.log("Nao eh um numero!!");
-        listaDeNumeros.pop();
-        break;
-    }
+    return true;
   }
 }
 
-//Receber input de n números no terminal.
+function PerguntarNumero(pergunta: string): number {
+  const resposta: string = prompt.question(pergunta);
 
-while (escolhaDoUsuario == true) {
-  numero = prompt.question("Digite um numero ou (e) para sair: ");
-  validador(numero);
-  if (numero == "e" || numero == "E") {
-    escolhaDoUsuario = false;
+  if (ValidarResposta(resposta)) {
+    return parseFloat(resposta);
   } else {
+    return 0;
+    //throw new Error("Function not implemented.");
   }
 }
 
-//Multiplicar todos os números.
-for (let index = 0; index < listaDeNumeros.length; index++) {
-  resultadoDaMultiplicação = resultadoDaMultiplicação * listaDeNumeros[index];
+let controle: boolean = true;
+const listaDeNumeros: number[] = [];
+
+while (controle) {
+  listaDeNumeros.push(PerguntarNumero("Digite um numero: "));
+  console.log(listaDeNumeros);
 }
-
-//Mostrar números no terminal.
-console.log(listaDeNumeros);
-
-//Receber input de 1 numero no terminal.
-do {
-  numeroDivisor = prompt.question("Digite um numero divisor: ");
-  if (numeroDivisor == 0) {
-    console.log("Impossivel dividir por 0");
-  } else {
-    //Dividir o resultado anterior pelo número inserido.
-    resultadoFinal = resultadoDaMultiplicação / numeroDivisor;
-  }
-} while (numeroDivisor == 0);
-
-//Mostrar resultado no terminal.
-console.log(resultadoFinal);
