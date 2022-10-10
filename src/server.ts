@@ -4,11 +4,27 @@ const readline = require('readline-sync')
 // Receber input de n números no terminal.
 let numeros: number[] = [];
     // loop para perguntar valores
+    let condicao = true;
+    while (condicao) {
+        const valorTexto: string = readline.question("Digite um numero: "); 
+        const valorNumero: number = 0;
+        const valido = !isNaN(valorNumero);
+        if(valido)
+     
+        numeros.push(valorNumero);
+        
+    }
+        
+        
 
-    const valor = readline.question("Digite um número: ");
+   
+        
+
+
+
 
     //verificar se o valor é valido para salvar ou não na lista de numeros
-        numeros.push()
+        
     // forma do usuario sair do loop
 console.log(numeros);
 
