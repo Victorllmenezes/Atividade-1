@@ -1,3 +1,6 @@
+import { parse } from "path";
+import { isNumber } from "util";
+
 const prompt = require("readline-sync");
 /**
  * Mostra uma mensagem no prompt de comando.
@@ -23,10 +26,16 @@ export function Perguntar(pergunta: string): string {
  */
 export function PerguntarNumero(pergunta: string): number | undefined {
   const respostaTexto = Perguntar(pergunta);
-  const temResposta = true; // Implementar validação se tem resposta ou se foi respondido vazio.
+  const temResposta = respostaTexto.trim() != ""; // Implementar validação se tem resposta ou se foi respondido vazio.
 
   if (temResposta) {
+    const respostaNumero = parseInt(respostaTexto);
+
     //Validar se é um numero e retornar o mesmo.
-    //Caso não seja um numero, levantar um erro com uma mensagem informando.
+    if (isNaN(respostaNumero)) {
+      throw new Error("Número inválido");
+
+      //Caso não seja um numero, levantar um erro com uma mensagem informando.
+    } else return respostaNumero;
   } else return undefined;
 }

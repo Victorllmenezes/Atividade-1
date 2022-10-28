@@ -1,5 +1,8 @@
 import { MultiplicarValores } from "./controller/MathController";
-import { MostrarMensagem, PerguntarNumero } from "./controller/PromptController";
+import {
+  MostrarMensagem,
+  PerguntarNumero,
+} from "./controller/PromptController";
 
 /**
  * Pergunta e adiciona numeros a uma lista.
@@ -38,12 +41,20 @@ function Atividade1(): void {
   //3. Mostrar números no terminal.
   MostrarMensagem(numerador.toString());
   //4. Receber input de n números no terminal.
-  const listaDenominadores: number[] = NovaListaNumeros("Insira um denominador: ");
+  const listaDenominadores: number[] = NovaListaNumeros(
+    "Insira um denominador: "
+  );
   const denominador = MultiplicarValores(listaDenominadores);
   //5. Dividir o resultado anterior pelo número inserido.
   const resultado = numerador / denominador;
+
+  if (denominador !== 0) {
+    MostrarMensagem("O resultado é: " + resultado);
+  } else {
+    console.log("Não é possivel dividir");
+  }
+
   //6. Mostrar resultado no terminal.
-  MostrarMensagem("O resultado é " + resultado);
 }
 
 export default Atividade1;

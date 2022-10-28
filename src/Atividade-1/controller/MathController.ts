@@ -1,9 +1,16 @@
+import test from "node:test";
+
 /**
  *
  * @param valores Multiplica os valores de uma lista e retorna o resultado.
  * @returns resultado da multiplicação.
  */
 export function MultiplicarValores(valores: number[]): number {
-  // Percorrer a lista de valores, multiplicando todo mundo. EX: [1, 2, 3, 4, 5] => return 120
-  return 0;
+  let resultado = valores.reduce(
+    (valorAnterior, valorAtual) => valorAnterior * valorAtual,
+    1
+  );
+  if (valores[0] == undefined) {
+    return (resultado = 0);
+  } else return resultado;
 }
