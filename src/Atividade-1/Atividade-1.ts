@@ -34,27 +34,21 @@ function NovaListaNumeros(mensagemInsercao: string): number[] {
 }
 
 function Atividade1(): void {
-  //1. Receber input de n números no terminal.
   const listaNumeradores: number[] = NovaListaNumeros("Insira um numerador: ");
-  //2. Multiplicar todos os números.
   const numerador = MultiplicarValores(listaNumeradores);
-  //3. Mostrar números no terminal.
   MostrarMensagem(numerador.toString());
-  //4. Receber input de n números no terminal.
+
   const listaDenominadores: number[] = NovaListaNumeros(
     "Insira um denominador: "
   );
   const denominador = MultiplicarValores(listaDenominadores);
-  //5. Dividir o resultado anterior pelo número inserido.
-  const resultado = numerador / denominador;
 
   if (denominador !== 0) {
+    const resultado = numerador / denominador;
     MostrarMensagem("O resultado é: " + resultado);
   } else {
-    console.log("Não é possivel dividir");
+    MostrarMensagem("Não é possivel dividir");
   }
-
-  //6. Mostrar resultado no terminal.
 }
 
 export default Atividade1;

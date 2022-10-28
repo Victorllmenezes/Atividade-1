@@ -6,11 +6,12 @@ import test from "node:test";
  * @returns resultado da multiplicação.
  */
 export function MultiplicarValores(valores: number[]): number {
-  let resultado = valores.reduce(
-    (valorAnterior, valorAtual) => valorAnterior * valorAtual,
-    1
-  );
-  if (valores[0] == undefined) {
-    return (resultado = 0);
-  } else return resultado;
+  if (valores.length == 0) {
+    return 0;
+  } else {
+    return valores.reduce(
+      (valorAnterior, valorAtual) => valorAnterior * valorAtual,
+      1
+    );
+  }
 }
