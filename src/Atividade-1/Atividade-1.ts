@@ -37,17 +37,19 @@ function Atividade1(): void {
   const listaNumeradores: number[] = NovaListaNumeros("Insira um numerador: ");
   const numerador = MultiplicarValores(listaNumeradores);
   MostrarMensagem(numerador.toString());
-
-  const listaDenominadores: number[] = NovaListaNumeros(
-    "Insira um denominador: "
-  );
-  const denominador = MultiplicarValores(listaDenominadores);
-
-  if (denominador !== 0) {
-    const resultado = numerador / denominador;
-    MostrarMensagem("O resultado é: " + resultado);
+  if (numerador == 0) {
+    MostrarMensagem("Numerador zerado, encerrando aplicação!");
   } else {
-    MostrarMensagem("Não é possivel dividir");
+    const listaDenominadores: number[] = NovaListaNumeros(
+      "Insira um denominador: "
+    );
+    const denominador = MultiplicarValores(listaDenominadores);
+    if (denominador !== 0) {
+      const resultado = numerador / denominador;
+      MostrarMensagem("O resultado é: " + resultado);
+    } else {
+      MostrarMensagem("Denominador zerado, encerrando aplicação!");
+    }
   }
 }
 
