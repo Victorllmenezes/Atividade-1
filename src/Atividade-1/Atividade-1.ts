@@ -35,21 +35,23 @@ function NovaListaNumeros(mensagemInsercao: string): number[] {
 
 function Atividade1(): void {
   const listaNumeradores: number[] = NovaListaNumeros("Insira um numerador: ");
-  const numerador = MultiplicarValores(listaNumeradores);
-  MostrarMensagem(numerador.toString());
-  if (numerador == 0) {
-    MostrarMensagem("Numerador zerado, encerrando aplicação!");
-  } else {
+  if (listaNumeradores.length > 0) {
+    const numerador = MultiplicarValores(listaNumeradores);
+    MostrarMensagem(numerador.toString());
+
     const listaDenominadores: number[] = NovaListaNumeros(
       "Insira um denominador: "
     );
-    const denominador = MultiplicarValores(listaDenominadores);
-    if (denominador !== 0) {
+
+    if (listaDenominadores.length > 0) {
+      const denominador = MultiplicarValores(listaDenominadores);
       const resultado = numerador / denominador;
       MostrarMensagem("O resultado é: " + resultado);
     } else {
-      MostrarMensagem("Denominador zerado, encerrando aplicação!");
+      MostrarMensagem("Impossível realizar divisão por 0!");
     }
+  } else {
+    MostrarMensagem("O resultado será 0");
   }
 }
 
