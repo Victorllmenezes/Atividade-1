@@ -23,10 +23,19 @@ export function Perguntar(pergunta: string): string {
  */
 export function PerguntarNumero(pergunta: string): number | undefined {
   const respostaTexto = Perguntar(pergunta);
-  const temResposta = true; // Implementar validação se tem resposta ou se foi respondido vazio.
+  const temResposta = respostaTexto.trim() != "";
 
   if (temResposta) {
-    //Validar se é um numero e retornar o mesmo.
-    //Caso não seja um numero, levantar um erro com uma mensagem informando.
-  } else return undefined;
+  const respostaNumero = parseInt(respostaTexto); 
+
+  //Validar se é um numero e retornar o mesmo.
+  if (isNaN(respostaNumero)) {
+
+   throw new Error("Número inválido")
+   
+  //Caso não seja um numero, levantar um erro com uma mensagem informando.
+} else return respostaNumero;
+}else return undefined
+ 
+  
 }

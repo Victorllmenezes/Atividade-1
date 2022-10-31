@@ -4,6 +4,10 @@
  * @returns resultado da multiplicação.
  */
 export function MultiplicarValores(valores: number[]): number {
-  // Percorrer a lista de valores, multiplicando todo mundo. EX: [1, 2, 3, 4, 5] => return 120
-  return 0;
+  if (valores.length == 0) {
+    return 0;
+  } else {
+    return valores.reduce((valoranterior, valoratual) => valoranterior * valoratual, 1);
+  }  
 }
+  

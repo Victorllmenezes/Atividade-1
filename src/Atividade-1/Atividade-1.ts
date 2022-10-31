@@ -43,7 +43,8 @@ function Atividade1(): void {
   //5. Dividir o resultado anterior pelo número inserido.
   const resultado = numerador / denominador;
   //6. Mostrar resultado no terminal.
-  MostrarMensagem("O resultado é " + resultado);
+ MostrarMensagem("O resultado é " + resultado);
+ 
 }
 
 export default Atividade1;
