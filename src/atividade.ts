@@ -1,6 +1,11 @@
 export function maiorNumeroNaLista(numeros: number[]): { maior: number; indice: number } {
-  const maiorNumero: number = numeros.reduce(function (anterior: number, atual: number) {
-    return anterior > atual ? anterior : atual;
-  });
-  return maiorNumero;
+  let maior = 0;
+  let indice = 0;
+  for (let i = 0; i < numeros.length; i++) {
+    if (numeros[i] > maior) {
+      maior = numeros[i];
+      indice = i;
+    }
+  }
+  return { maior, indice };
 }
