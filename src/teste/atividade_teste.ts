@@ -11,7 +11,6 @@ describe("Teste atividade 1/2", () => {
 
   it("Achar indice do maior numero da lista", () => {
     const { indice } = maiorNumeroNaLista(lista);
-
     expect(indice).to.equal(6);
   });
 });
