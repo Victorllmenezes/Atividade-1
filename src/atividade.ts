@@ -1,3 +1,7 @@
 export function maiorNumeroNaLista(numeros: number[]): number {
-  return 0;
+  
+  return numeros.reduce(function(prev, current) { 
+    return prev > current ? prev : current; 
+  });
+  
 }
