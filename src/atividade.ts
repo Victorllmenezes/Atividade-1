@@ -2,8 +2,8 @@ export function maiorNumeroNaLista(numeros: number[]): {
   maior: number;
   indice: number;
 } {
-  let maiorValor: number = 0;
-  let indice: number = 0;
+  let maiorValor: number = numeros[0];
+  let indice: number = numeros[0];
   numeros.forEach((valores: number, index: number) => {
     if (valores > maiorValor) {
       maiorValor = valores;
