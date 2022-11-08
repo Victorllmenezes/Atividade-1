@@ -7,11 +7,11 @@ describe("Teste atividade 1/2", () => {
 
   it("Achando o maior numero da lista e seu indice", () => {
     const resultado = maiorNumeroNaLista(lista);
-    expect(resultado).to.equal({ maior: 99, indice: 6 });
+    expect(resultado).to.deep.equal({ maior: 99, indice: 6 });
   });
 
   it("Achar o maior numero da lista negativa e seu indice", () => {
     const resultado = maiorNumeroNaLista(listaNegativa);
-    expect(resultado).to.equal({ maior: -1, indice: 3 });
+    expect(resultado).to.deep.equal({ maior: -1, indice: 3 });
   });
 });
