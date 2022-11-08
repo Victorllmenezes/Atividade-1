@@ -1,5 +1,4 @@
 export function maiorNumeroNaLista(numeros: number[]): { maior: number; indice: number } {
-<<<<<<< HEAD
     let maior = numeros[0];
     let indice = numeros[0];
         for (let i = 0; i < numeros.length; i++) {
@@ -10,10 +9,6 @@ export function maiorNumeroNaLista(numeros: number[]): { maior: number; indice: 
             } 
         }
         return { maior, indice };  
-    }
-    
-=======
-  throw Error("Not implemented");
 }
 
 /**
@@ -31,4 +26,3 @@ export function juntarListasOrdenando(listas: number[][]): number[] {
 export function mediaDaSomaDasListas(listas: number[][]): number {
   throw Error("Not implemented");
 }
->>>>>>> atividade2
