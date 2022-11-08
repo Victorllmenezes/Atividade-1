@@ -7,19 +7,18 @@ describe("Teste atividade 1/2", () => {
 
   it("Achando o maior numero da lista e seu indice", () => {
     const resultado = maiorNumeroNaLista(lista);
-    expect(resultado).to.deep.equals({ maior: 99, indice: 6 });
+    expect(resultado).to.deep.equal({ maior: 99, indice: 6 });
   });
 
   it("Achar o maior numero da lista negativa e seu indice", () => {
     const resultado = maiorNumeroNaLista(listaNegativa);
-    expect(resultado).to.deep.equals({ maior: -1, indice: 3 });
+    expect(resultado).to.deep.equal({ maior: -1, indice: 3 });
   });
 
   it("Juntar listas e ordena-las", () => {
     const resultado = juntarListasOrdenando([lista, listaNegativa]);
-    expect(resultado).to.equal([
-      -99, -90, -87, -81, -77, -71, -60, -59, -56, -52, -45, -39, -25, -16, -13, -11, -1, 1, 11, 13, 16, 25, 39, 45, 52, 56, 59, 60, 71, 77, 81, 87,
-      90, 92, 95, 98, 99,
+    expect(resultado).to.deep.equal([
+      -99, -98, -95, -92, -90, -87, -81, -77, -71, -60, -59, -56, -52, -45, -39, -25, -16, -13, -11, -1, 1, 11, 13, 16, 25, 39, 45, 52, 56, 59, 60, 71, 77, 81, 87, 90, 92, 95, 98, 99,
     ]);
   });
 
