@@ -18,7 +18,7 @@ export function maiorNumeroNaLista(numeros: number[]): {
  * @param listas Lista de listas de numeros
  */
 export function juntarListasOrdenando(listas: number[][]): number[] {
-  throw Error("Not implemented");
+  return listas.flat().sort((a, b) => a - b);
 }
 
 /**
@@ -26,5 +26,11 @@ export function juntarListasOrdenando(listas: number[][]): number[] {
  * @param listas Lista de listas de numeros
  */
 export function mediaDaSomaDasListas(listas: number[][]): number {
-  throw Error("Not implemented");
+  const listaDeNumeros: number[] = listas.flat().sort((a, b) => a - b);
+  let resultado = 0;
+  console.log("teste:" + listaDeNumeros);
+  listaDeNumeros.forEach((valores) => {
+    resultado += valores;
+  });
+  return resultado;
 }
