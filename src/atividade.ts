@@ -26,11 +26,11 @@ export function juntarListasOrdenando(listas: number[][]): number[] {
  * @param listas Lista de listas de numeros
  */
 export function mediaDaSomaDasListas(listas: number[][]): number {
-  const listaDeNumeros: number[] = listas.flat().sort((a, b) => a - b);
+  const listaDeNumeros: number[] = listas.flat();
   let resultado = 0;
-  console.log("teste:" + listaDeNumeros);
   listaDeNumeros.forEach((valores) => {
     resultado += valores;
   });
+  resultado = resultado / listaDeNumeros.length;
   return resultado;
 }
