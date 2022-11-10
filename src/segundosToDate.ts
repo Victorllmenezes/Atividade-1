@@ -5,5 +5,11 @@
  * @returns Objeto com os valores em anos, dias, horas, minutos e segundos
  */
 export function SegundosParaEstruturaDeData(segundos: number): { anos: number; dias: number; horas: number; minutos: number; segundos: number } {
-  throw Error("Not implemented");
+  return {
+    anos: Math.floor(segundos / 3.154e7),
+    dias: Math.floor((segundos % 3.154e7) / 86400),
+    horas: Math.floor((segundos % 86400) / 3600),
+    minutos: Math.floor((segundos % 3600) / 60),
+    segundos: segundos % 60,
+  };
 }
