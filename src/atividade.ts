@@ -14,11 +14,19 @@ export function maiorNumeroNaLista(numeros: number[]): {
 }
 
 /**
+ * Juntar n listas
+ * @param listas Lista de listas de numeros
+ */
+function juntarListas(listas: number[][]): number[] {
+  return listas.flat();
+}
+
+/**
  * Juntar n listas e ordena-las
  * @param listas Lista de listas de numeros
  */
 export function juntarListasOrdenando(listas: number[][]): number[] {
-  return listas.flat().sort((a, b) => a - b);
+  return juntarListas(listas).sort((a, b) => a - b);
 }
 
 /**
@@ -26,11 +34,6 @@ export function juntarListasOrdenando(listas: number[][]): number[] {
  * @param listas Lista de listas de numeros
  */
 export function mediaDaSomaDasListas(listas: number[][]): number {
-  const listaDeNumeros: number[] = listas.flat();
-  let resultado = 0;
-  listaDeNumeros.forEach((valores) => {
-    resultado += valores;
-  });
-  resultado = resultado / listaDeNumeros.length;
-  return resultado;
+  const ListaDeNumeros = juntarListas(listas);
+  return ListaDeNumeros.reduce((valorAnterior, valorAtual) => valorAnterior + valorAtual) / ListaDeNumeros.length;
 }
