@@ -4,7 +4,7 @@
   "description": "* Implementar um código que receba n números e multiplique entre eles, depois receba mais 1 número e divida o resultado anterior.\r * *Necessário a implementação de tratamento em caso de inputs inválidos.*",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register src/teste/atividade_teste.ts",
+    "test": "mocha -r ts-node/register src/teste/*.ts",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "repository": {
