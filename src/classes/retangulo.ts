@@ -36,43 +36,21 @@ export class Retangulo {
     const v2ContidoEmMim = this.pontoEstaContidoEmMim(retangulo.x2, retangulo.y2);
     const v3ContidoEmMim = this.pontoEstaContidoEmMim(retangulo.x1, retangulo.y2);
     const v4ContidoEmMim = this.pontoEstaContidoEmMim(retangulo.x2, retangulo.y1);
-
-    if (v1ContidoEmMim && v2ContidoEmMim) {
-      return estadoInteracao.contendo;
-    }
+    const todosContidos = v1ContidoEmMim && v2ContidoEmMim && v3ContidoEmMim && v4ContidoEmMim;
+    if (todosContidos) return estadoInteracao.contendo;
+    else if (v1ContidoEmMim || v2ContidoEmMim || v3ContidoEmMim || v4ContidoEmMim) return estadoInteracao.colidindo;
 
     const v1ContidoNoRetangulo = retangulo.pontoEstaContidoEmMim(this.x1, this.y1);
     const v2ContidoNoRetangulo = retangulo.pontoEstaContidoEmMim(this.x2, this.y2);
     const v3ContidoNoRetangulo = retangulo.pontoEstaContidoEmMim(this.x1, this.y2);
     const v4ContidoNoRetangulo = retangulo.pontoEstaContidoEmMim(this.x2, this.y1);
-
-    if (v1ContidoNoRetangulo && v2ContidoNoRetangulo) {
-      return estadoInteracao.contido;
-    }
+    const todosContidosNoRetangulo = v1ContidoNoRetangulo && v2ContidoNoRetangulo && v3ContidoNoRetangulo && v4ContidoNoRetangulo;
+    if (todosContidosNoRetangulo) return estadoInteracao.contido;
+    else if (v1ContidoNoRetangulo || v2ContidoNoRetangulo || v3ContidoNoRetangulo || v4ContidoNoRetangulo) return estadoInteracao.colidindo;
 
     const corpoCortandoNoEixoX = retangulo.x1 >= this.x1 && retangulo.x2 <= this.x2 && this.y1 <= retangulo.y1 && this.y2 >= retangulo.y2;
-    const corpoCortandoNoEixoY = retangulo.y1 <= this.y1 && retangulo.y2 >= this.y2 && this.x1 >= retangulo.x1 && this.x2 <= retangulo.x2;
-    const meuCorpoCortandoNoEixoX = this.x1 >= retangulo.x1 && this.x2 <= retangulo.x2 && retangulo.y1 <= this.y1 && retangulo.y2 >= this.y2;
     const meuCorpoCortandoNoEixoY = this.y1 <= retangulo.y1 && this.y2 >= retangulo.y2 && retangulo.x1 >= this.x1 && retangulo.x2 <= this.x2;
 
-    //Se algum vertice estiver contido em mim ou no retangulo ou o corpo estiver cortando algum eixo em mim ou no retangulo está em colidindo
-    if (
-      v1ContidoEmMim ||
-      v2ContidoEmMim ||
-      v3ContidoEmMim ||
-      v4ContidoEmMim ||
-      v1ContidoNoRetangulo ||
-      v2ContidoNoRetangulo ||
-      v3ContidoNoRetangulo ||
-      v4ContidoNoRetangulo ||
-      corpoCortandoNoEixoX ||
-      corpoCortandoNoEixoY ||
-      meuCorpoCortandoNoEixoX ||
-      meuCorpoCortandoNoEixoY
-    ) {
-      return estadoInteracao.colidindo;
-    }
-
-    return estadoInteracao.naoColidindo;
+    return corpoCortandoNoEixoX || meuCorpoCortandoNoEixoY ? estadoInteracao.colidindo : estadoInteracao.naoColidindo;
   }
 }
