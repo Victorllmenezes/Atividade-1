@@ -42,11 +42,7 @@ export class Retangulo {
 
     const v1ContidoNoRetangulo = retangulo.pontoEstaContidoEmMim(this.x1, this.y1);
     const v2ContidoNoRetangulo = retangulo.pontoEstaContidoEmMim(this.x2, this.y2);
-    const v3ContidoNoRetangulo = retangulo.pontoEstaContidoEmMim(this.x1, this.y2);
-    const v4ContidoNoRetangulo = retangulo.pontoEstaContidoEmMim(this.x2, this.y1);
-    const todosContidosNoRetangulo = v1ContidoNoRetangulo && v2ContidoNoRetangulo && v3ContidoNoRetangulo && v4ContidoNoRetangulo;
-    if (todosContidosNoRetangulo) return estadoInteracao.contido;
-    else if (v1ContidoNoRetangulo || v2ContidoNoRetangulo || v3ContidoNoRetangulo || v4ContidoNoRetangulo) return estadoInteracao.colidindo;
+    if (v1ContidoNoRetangulo && v2ContidoNoRetangulo) return estadoInteracao.contido;
 
     const corpoCortandoNoEixoX = retangulo.x1 >= this.x1 && retangulo.x2 <= this.x2 && this.y1 <= retangulo.y1 && this.y2 >= retangulo.y2;
     const meuCorpoCortandoNoEixoY = this.y1 <= retangulo.y1 && this.y2 >= retangulo.y2 && retangulo.x1 >= this.x1 && retangulo.x2 <= this.x2;
