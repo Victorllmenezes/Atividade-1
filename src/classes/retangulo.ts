@@ -33,27 +33,33 @@ export class Retangulo {
 //Implementar método estadoEmRelacaoA
 
   estaDentro(x:number, y:number): boolean{
-  return x >= this.x1 && x <= this.x2 && y <= this.y1 && y >= this.y2 
+  return x >= this.x1 && x <= this.x2 && y <= this.y1 && y >= this.y2
 }
+  
 estadoEmRelacaoA(objeto:Retangulo): estadoInteracao {
   const v1ObjetoEstaDentroDeMim = this.estaDentro(objeto.x1, objeto.y1);
   const v2ObjetoEstaDentroDeMim = this.estaDentro(objeto.x2, objeto.y2);
   const v3ObjetoEstaDentroDeMim = this.estaDentro(objeto.x1, objeto.y2);
   const v4ObjetoEstaDentroDeMim = this.estaDentro(objeto.x2, objeto.y1);
+
+  if(v1ObjetoEstaDentroDeMim && v2ObjetoEstaDentroDeMim && v3ObjetoEstaDentroDeMim && v4ObjetoEstaDentroDeMim)
+    return estadoInteracao.contendo
+  else if (v1ObjetoEstaDentroDeMim || v2ObjetoEstaDentroDeMim || v3ObjetoEstaDentroDeMim || v4ObjetoEstaDentroDeMim)
+    return estadoInteracao.colidindo
+  
+
   const v1ObjetoEstaSendoContido = objeto.estaDentro(this.x1, this.y1);
   const v2ObjetoEstaSendoContido = objeto.estaDentro(this.x2, this.y2);
-  const v3ObjetoEstaSendoContido = objeto.estaDentro(this.x1, this.y2);
-  const v4ObjetoEstaSendoContido = objeto.estaDentro(this.x2, this.y1);
 
-
-  if(v1ObjetoEstaDentroDeMim && v2ObjetoEstaDentroDeMim && v3ObjetoEstaDentroDeMim && v4ObjetoEstaDentroDeMim){
-    return estadoInteracao.contendo
-  } else if (v1ObjetoEstaDentroDeMim || v4ObjetoEstaDentroDeMim){
-    return estadoInteracao.colidindo
-  } else if (v1ObjetoEstaSendoContido && v2ObjetoEstaSendoContido && v3ObjetoEstaSendoContido && v4ObjetoEstaSendoContido){
+  if (v1ObjetoEstaSendoContido && v2ObjetoEstaSendoContido)
     return estadoInteracao.contido
-  }
-  // Se não cair em nenhum caso, retorna não colidindo
+  
+  const passandoPorMim = this.x1 < objeto.x1 && this.x2 > objeto.x2 && this.y1 < objeto.y1 && this.y2 > objeto.y2;
+  const passandoPorMim2 = objeto.x1 < this.x1 && objeto.x2 > this.x2 && objeto.y1 < this.y1 && objeto.y2 > this.y2;
+
+  if (passandoPorMim || passandoPorMim2)
+    return estadoInteracao.colidindo
+    
   return estadoInteracao.naoColidindo;
 }
 }
