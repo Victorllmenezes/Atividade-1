@@ -31,7 +31,8 @@ function Atividade1(): void {
   if (listaNumeradores.length > 0) {
     const numerador = MultiplicarValores(listaNumeradores);
     MostrarMensagem("\nO numerador é " + numerador.toString() + "\n");
-    if (numerador !== 0) {
+    const numeradorDiferenteDeZero = numerador !== 0;
+    if (numeradorDiferenteDeZero) {
       let listaDenominadores: number[] = NovaListaNumeros("Insira um denominador: ");
       const denominador = MultiplicarValores(listaDenominadores);
 

@@ -18,7 +18,42 @@ export enum estadoInteracao {
   @returns Um objeto do tipo Retangulo
  */
 export class Retangulo {
-  //Implementar propriedades
-  //Implementar construtor
-  //Implementar método estadoEmRelacaoA
+ 
+  x1:number;
+  y1:number;
+  x2:number;
+  y2:number;
+
+  constructor (x1:number, y1:number, x2:number, y2:number){
+  this.x1 = x1;
+  this.y1 = y1;
+  this.x2 = x2;
+  this.y2 = y2;
+  }
+//Implementar método estadoEmRelacaoA
+
+  estaDentro(x:number, y:number): boolean{
+  return x >= this.x1 && x <= this.x2 && y <= this.y1 && y >= this.y2 
+}
+estadoEmRelacaoA(objeto:Retangulo): estadoInteracao {
+  const v1ObjetoEstaDentroDeMim = this.estaDentro(objeto.x1, objeto.y1);
+  const v2ObjetoEstaDentroDeMim = this.estaDentro(objeto.x2, objeto.y2);
+  const v3ObjetoEstaDentroDeMim = this.estaDentro(objeto.x1, objeto.y2);
+  const v4ObjetoEstaDentroDeMim = this.estaDentro(objeto.x2, objeto.y1);
+  const v1ObjetoEstaSendoContido = objeto.estaDentro(this.x1, this.y1);
+  const v2ObjetoEstaSendoContido = objeto.estaDentro(this.x2, this.y2);
+  const v3ObjetoEstaSendoContido = objeto.estaDentro(this.x1, this.y2);
+  const v4ObjetoEstaSendoContido = objeto.estaDentro(this.x2, this.y1);
+
+
+  if(v1ObjetoEstaDentroDeMim && v2ObjetoEstaDentroDeMim && v3ObjetoEstaDentroDeMim && v4ObjetoEstaDentroDeMim){
+    return estadoInteracao.contendo
+  } else if (v1ObjetoEstaDentroDeMim || v2ObjetoEstaDentroDeMim || v3ObjetoEstaDentroDeMim || v4ObjetoEstaDentroDeMim){
+    return estadoInteracao.colidindo
+  } else if (v1ObjetoEstaSendoContido && v2ObjetoEstaSendoContido && v3ObjetoEstaSendoContido && v4ObjetoEstaSendoContido){
+    return estadoInteracao.contido
+  }
+  // Se não cair em nenhum caso, retorna não colidindo
+  return estadoInteracao.naoColidindo;
+}
 }
