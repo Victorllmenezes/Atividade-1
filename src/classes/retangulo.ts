@@ -18,7 +18,7 @@ export enum estadoInteracao {
   @returns Um objeto do tipo Retangulo
  */
 export class Retangulo {
-  constructor(private x1: number, private y1: number, private x2: number, private y2: number) {
+  constructor(public x1: number, public y1: number, public x2: number, public y2: number) {
     if (x1 > x2) {
       throw new Error("x1 deve ser menor que x2");
     }
