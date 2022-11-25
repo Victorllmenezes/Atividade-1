@@ -11,7 +11,6 @@ export function SegundosParaEstruturaDeData(segundos: number): { anos: number; d
   const horasEmSegundos = minutosEmSegundos * 60;
   const diasEmSegundos = horasEmSegundos * 24;
   const anosEmSegundos = diasEmSegundos * 365;
-  console.log("Teste:" + anosEmSegundos);
 
   return {
     anos: Math.floor(segundos / anosEmSegundos),
