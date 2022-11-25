@@ -24,12 +24,6 @@ describe.only("Teste atividade de colisão", () => {
     expect(retangulo1.estadoEmRelacaoA(retangulo2)).equal(estadoInteracao.colidindo);
   });
 
-  it("Detecção de colisão 3 (Cortando no eixo x)", () => {
-    const retangulo1 = new Retangulo(0, 4, 6, 0);
-    const retangulo2 = new Retangulo(2, 7, 5, -1);
-    expect(retangulo1.estadoEmRelacaoA(retangulo2)).equal(estadoInteracao.colidindo);
-  });
-
   it("Detecção de não colisão", () => {
     const retangulo1 = new Retangulo(4, 7, 5, 3);
     const retangulo2 = new Retangulo(1, 5, 3, 1);
