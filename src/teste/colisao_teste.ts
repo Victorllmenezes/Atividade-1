@@ -17,9 +17,16 @@ describe.only("Teste atividade de colisão", () => {
     expect(retangulo1.estadoEmRelacaoA(retangulo2)).equal(estadoInteracao.colidindo);
   });
 
-  it("Detecção de colisão 3 (Cortando no eixo x)", () => {
+  it("Detecção de colisão 3", () => {
     const retangulo1 = new Retangulo(0, 4, 6, 0);
     const retangulo2 = new Retangulo(2, 7, 5, -1);
+    desenharRetangulos(retangulo1, retangulo2);
+    expect(retangulo1.estadoEmRelacaoA(retangulo2)).equal(estadoInteracao.colidindo);
+  });
+
+  it("Detecção de colisão 4", () => {
+    const retangulo1 = new Retangulo(-15, 18, 6, 0);
+    const retangulo2 = new Retangulo(-2, 15, 30, -10);
     desenharRetangulos(retangulo1, retangulo2);
     expect(retangulo1.estadoEmRelacaoA(retangulo2)).equal(estadoInteracao.colidindo);
   });
@@ -38,9 +45,16 @@ describe.only("Teste atividade de colisão", () => {
     expect(retangulo1.estadoEmRelacaoA(retangulo2)).equal(estadoInteracao.naoColidindo);
   });
 
+  it("Detecção de não colisão 3", () => {
+    const retangulo1 = new Retangulo(0, 11, 10, 3);
+    const retangulo2 = new Retangulo(15, 20, 29, 2);
+    desenharRetangulos(retangulo1, retangulo2);
+    expect(retangulo1.estadoEmRelacaoA(retangulo2)).equal(estadoInteracao.naoColidindo);
+  });
+
   it("Detecção de colisão com sobreposição", () => {
-    const retangulo1 = new Retangulo(2, 7, 5, 3);
-    const retangulo2 = new Retangulo(3, 6, 4, 4);
+    const retangulo1 = new Retangulo(2, 20, 30, 3);
+    const retangulo2 = new Retangulo(6, 16, 26, 7);
     desenharRetangulos(retangulo1, retangulo2);
     expect(retangulo1.estadoEmRelacaoA(retangulo2)).equal(estadoInteracao.contendo);
   });
