@@ -50,12 +50,17 @@ export class Retangulo {
     const figura2verticeDireitaCima = _objeto.estaDentro(this.x2, this.y1);
     const figura2verticeEsquerdaBaixo = _objeto.estaDentro(this.x1, this.y2);
 
+    const linhaLateralColide = this.x2 >= _objeto.x2 || this.y2 >= _objeto.y2;
+
     if (figura1verticeEsquerdaCima && figura1verticeDireitaCima && figura1verticeEsquerdaBaixo && figura1verticeDireitaBaixo) {
       return estadoInteracao.contido;
-    } else if (figura1verticeEsquerdaCima || figura1verticeDireitaCima || figura1verticeEsquerdaBaixo || figura1verticeDireitaBaixo) {
+      //
+    } else if (figura1verticeEsquerdaCima || figura1verticeDireitaCima || figura1verticeEsquerdaBaixo || figura1verticeDireitaBaixo || linhaLateralColide) {
       return estadoInteracao.colidindo;
-    } else if (figura2verticeDireitaBaixo && figura2verticeDireitaCima && figura2verticeEsquerdaBaixo && figura2verticeEsquerdaCima) {
+      //
+    } else if (!figura2verticeDireitaBaixo && !figura2verticeDireitaCima && !figura2verticeEsquerdaBaixo && !figura2verticeEsquerdaCima) {
       return estadoInteracao.contendo;
+      //
     } else {
       return estadoInteracao.naoColidindo;
     }
