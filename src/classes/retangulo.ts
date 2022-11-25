@@ -48,7 +48,7 @@ estadoEmRelacaoA(objeto:Retangulo): estadoInteracao {
 
   if(v1ObjetoEstaDentroDeMim && v2ObjetoEstaDentroDeMim && v3ObjetoEstaDentroDeMim && v4ObjetoEstaDentroDeMim){
     return estadoInteracao.contendo
-  } else if (v1ObjetoEstaDentroDeMim || v2ObjetoEstaDentroDeMim || v3ObjetoEstaDentroDeMim || v4ObjetoEstaDentroDeMim){
+  } else if (v1ObjetoEstaDentroDeMim || v4ObjetoEstaDentroDeMim){
     return estadoInteracao.colidindo
   } else if (v1ObjetoEstaSendoContido && v2ObjetoEstaSendoContido && v3ObjetoEstaSendoContido && v4ObjetoEstaSendoContido){
     return estadoInteracao.contido

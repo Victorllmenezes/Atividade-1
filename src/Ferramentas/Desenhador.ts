@@ -20,11 +20,11 @@ export function desenharRetangulos(retangulo1: Retangulo, retangulo2: Retangulo)
   let linha = "";
   for (let y = maiorY; y >= menorY; y--) {
     for (let x = menorX; x <= maiorX; x++) {
-      if (retangulo1.pontoEstaContidoEmMim(x, y) && retangulo2.pontoEstaContidoEmMim(x, y)) {
+      if (retangulo1.estaDentro(x, y) && retangulo2.estaDentro(x, y)) {
         linha += " # ";
-      } else if (retangulo1.pontoEstaContidoEmMim(x, y)) {
+      } else if (retangulo1.estaDentro(x, y)) {
         linha += " 1 ";
-      } else if (retangulo2.pontoEstaContidoEmMim(x, y)) {
+      } else if (retangulo2.estaDentro(x, y)) {
         linha += " 2 ";
       } else {
         linha += "   ";
