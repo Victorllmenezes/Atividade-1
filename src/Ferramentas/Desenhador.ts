@@ -20,15 +20,12 @@ export function desenharRetangulos(retangulo1: Retangulo, retangulo2: Retangulo)
   let linha = "";
   for (let y = maiorY; y >= menorY; y--) {
     for (let x = menorX; x <= maiorX; x++) {
-      if (retangulo1.estaDentro(x, y) && retangulo2.estaDentro(x, y)) {
-        linha += " # ";
-      } else if (retangulo1.estaDentro(x, y)) {
-        linha += " 1 ";
-      } else if (retangulo2.estaDentro(x, y)) {
-        linha += " 2 ";
-      } else {
-        linha += "   ";
-      }
+      const pontoContidoRetangulo1 = retangulo1.estaDentro(x, y);
+      const pontoContidoRetangulo2 = retangulo2.estaDentro(x, y);
+      if (pontoContidoRetangulo1 && pontoContidoRetangulo2) linha += "\x1b[31m" + " # ";
+      else if (pontoContidoRetangulo1) linha += "\x1b[34m" + " 1 ";
+      else if (pontoContidoRetangulo2) linha += "\x1b[33m" + " 2 ";
+      else linha += "   ";
     }
     console.log(linha);
     linha = "";
