@@ -47,27 +47,16 @@ export class Retangulo {
 
     const figura2verticeEsquerdaCima = _objeto.estaDentro(this.x1, this.y1);
     const figura2verticeDireitaBaixo = _objeto.estaDentro(this.x2, this.y2);
-    const figura2verticeDireitaCima = _objeto.estaDentro(this.x2, this.y1);
-    const figura2verticeEsquerdaBaixo = _objeto.estaDentro(this.x1, this.y2);
-    console.log(figura2verticeDireitaBaixo);
-    const linhaLateralColide = this.x1 <= _objeto.x1 && this.y1 <= _objeto.y1 && this.x2 >= _objeto.x2 && this.y2 >= _objeto.y2;
+    const linhaLateralColide =
+      (this.x1 <= _objeto.x1 && this.y1 <= _objeto.y1 && this.x2 >= _objeto.x2 && this.y2 >= _objeto.y2) ||
+      (this.x1 >= _objeto.x1 && this.y1 >= _objeto.y1 && this.x2 <= _objeto.x2 && this.y2 < _objeto.y2);
 
-    if (figura1verticeEsquerdaCima && figura1verticeDireitaCima && figura1verticeEsquerdaBaixo && figura1verticeDireitaBaixo) {
+    if (figura1verticeEsquerdaCima && figura1verticeDireitaBaixo) {
       return estadoInteracao.contendo;
       //
-    } else if (figura2verticeEsquerdaCima && figura2verticeDireitaCima && figura2verticeEsquerdaBaixo && figura2verticeDireitaBaixo) {
+    } else if (figura2verticeEsquerdaCima && figura2verticeDireitaBaixo) {
       return estadoInteracao.contido;
-    } else if (
-      figura2verticeEsquerdaCima ||
-      figura2verticeDireitaCima ||
-      figura2verticeEsquerdaBaixo ||
-      figura2verticeDireitaBaixo ||
-      figura1verticeEsquerdaCima ||
-      figura1verticeDireitaCima ||
-      figura1verticeEsquerdaBaixo ||
-      figura1verticeDireitaBaixo ||
-      linhaLateralColide
-    ) {
+    } else if (figura1verticeEsquerdaCima || figura1verticeDireitaCima || figura1verticeEsquerdaBaixo || figura1verticeDireitaBaixo || linhaLateralColide) {
       return estadoInteracao.colidindo;
     } else {
       return estadoInteracao.naoColidindo;

@@ -30,7 +30,12 @@ describe.only("Teste atividade de colisão", () => {
     desenharRetangulos(retangulo1, retangulo2);
     expect(retangulo1.estadoEmRelacaoA(retangulo2)).equal(estadoInteracao.colidindo);
   });
-
+  it("DDetecção de colisão 5", () => {
+    const retangulo1 = new Retangulo(4, 8, 10, 2);
+    const retangulo2 = new Retangulo(2, 6, 12, 4);
+    desenharRetangulos(retangulo1, retangulo2);
+    expect(retangulo1.estadoEmRelacaoA(retangulo2)).equal(estadoInteracao.colidindo);
+  });
   it("Detecção de não colisão", () => {
     const retangulo1 = new Retangulo(4, 7, 5, 3);
     const retangulo2 = new Retangulo(1, 5, 3, 1);
